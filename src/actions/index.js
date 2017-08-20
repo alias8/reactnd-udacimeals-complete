@@ -17,3 +17,18 @@ export function removeFromCalendar({ day, meal }) {
     meal,
   };
 }
+
+// { type: 'DELETE_FLAVOR', flavor: 'Vanilla' }
+
+const initState = [
+  { flavor: 'Chocolate', count: 36 },
+  { flavor: 'Vanilla', count: 210 }];
+
+function appReducer(state = initState, action) {
+  switch (action.type) {
+    case 'DELETE_FLAVOUR':
+      return state.filter(flavor => flavor !== action.flavor);
+    default:
+      return state;
+  }
+}
